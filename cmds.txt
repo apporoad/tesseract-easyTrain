@@ -1,0 +1,26 @@
+﻿magick -density 400 -units PixelsPerInch  c鏄ョ敯.pdf cc.jpg
+
+tesseract yy.jpg yy -l chi_sim
+
+textract 1.png --tesseract.lang=chi_sim
+
+tesseract cc.jpg  cc -l chi_sim --psm 1
+
+
+magick -density 400 -units PixelsPerInch source\tSource.pdf  source\tSource.jpg
+ls source/
+// 查看需要转换的图片
+tesseract source/tSource-0.jpg ocr/ocr -l chi_sim --psm 1
+
+//查看ocr/ocr.txt  请使用熟悉的文本编辑器，这里采用vi
+vi ocr/ocr.txt
+
+//对比《标注（用于参考）.pdf》 中关键字段，查看哪些是未识别出来的
+基本上很多都没有识别出来，现在做优化处理
+//采用截图将需要的截下来，保存为tif格式
+// 可以通过命令直接转图片格式 ：
+//magick.exe train\soucePics\1.jpg train\tifPics\1.tif
+//tif 文件直接存放在 train/tifPics 文件夹下
+
+训练开始
+
